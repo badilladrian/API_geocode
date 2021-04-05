@@ -2,7 +2,6 @@
 
 # REQUEST
 
-``` 
 GET /api/eta-closest-hs?lat=xx&long=xx
 
 
