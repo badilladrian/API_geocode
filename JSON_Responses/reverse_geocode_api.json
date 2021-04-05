@@ -1,0 +1,869 @@
+[
+    {
+        "address_components": [
+            {
+                "long_name": "R-1",
+                "short_name": "R-1",
+                "types": [
+                    "premise"
+                ]
+            },
+            {
+                "long_name": "GA Block",
+                "short_name": "GA Block",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_3"
+                ]
+            },
+            {
+                "long_name": "Sector III",
+                "short_name": "Sector III",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "North 24 Parganas",
+                "short_name": "North 24 Parganas",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "700106",
+                "short_name": "700106",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "R-1, GA Block, Sector III, Bidhannagar, Kolkata, West Bengal 700106, India",
+        "geometry": {
+            "location": {
+                "lat": 22.5759589,
+                "lng": 88.40478039999999
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.5773078802915,
+                    "lng": 88.4061293802915
+                },
+                "southwest": {
+                    "lat": 22.5746099197085,
+                    "lng": 88.4034314197085
+                }
+            }
+        },
+        "place_id": "ChIJf-4KY9d1AjoRPqjdBPoRKLA",
+        "plus_code": {
+            "compound_code": "HCG3+9W Kolkata, West Bengal, India",
+            "global_code": "7MJCHCG3+9W"
+        },
+        "types": [
+            "street_address"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "Unnamed Road",
+                "short_name": "Unnamed Road",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "GA Block",
+                "short_name": "GA Block",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_3"
+                ]
+            },
+            {
+                "long_name": "Sector III",
+                "short_name": "Sector III",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "700097",
+                "short_name": "700097",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "Unnamed Road, GA Block, Sector III, Bidhannagar, Kolkata, West Bengal 700097, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.5762591,
+                    "lng": 88.40494869999999
+                },
+                "southwest": {
+                    "lat": 22.5744672,
+                    "lng": 88.40464779999999
+                }
+            },
+            "location": {
+                "lat": 22.5753944,
+                "lng": 88.40490310000001
+            },
+            "location_type": "GEOMETRIC_CENTER",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.5767121302915,
+                    "lng": 88.4061472302915
+                },
+                "southwest": {
+                    "lat": 22.57401416970849,
+                    "lng": 88.40344926970849
+                }
+            }
+        },
+        "place_id": "ChIJDY_719l1AjoRhHeGURfAcHw",
+        "types": [
+            "route"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "GA Block",
+                "short_name": "GA Block",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_3"
+                ]
+            },
+            {
+                "long_name": "Sector III",
+                "short_name": "Sector III",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "700106",
+                "short_name": "700106",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "GA Block, Sector III, Bidhannagar, Kolkata, West Bengal 700106, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.576937,
+                    "lng": 88.409348
+                },
+                "southwest": {
+                    "lat": 22.5710969,
+                    "lng": 88.40261079999999
+                }
+            },
+            "location": {
+                "lat": 22.5740095,
+                "lng": 88.40584779999999
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.576937,
+                    "lng": 88.409348
+                },
+                "southwest": {
+                    "lat": 22.5710969,
+                    "lng": 88.40261079999999
+                }
+            }
+        },
+        "place_id": "ChIJ0wlLMNd1AjoR8jDpqnOGSFE",
+        "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_3"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "700097",
+                "short_name": "700097",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "Sector III",
+                "short_name": "Sector III",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "North 24 Parganas",
+                "short_name": "North 24 Parganas",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "Sector III, Bidhannagar, Kolkata, West Bengal 700097, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.5768612,
+                    "lng": 88.4128868
+                },
+                "southwest": {
+                    "lat": 22.5710809,
+                    "lng": 88.4045249
+                }
+            },
+            "location": {
+                "lat": 22.5740334,
+                "lng": 88.40827259999999
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.5768612,
+                    "lng": 88.4128868
+                },
+                "southwest": {
+                    "lat": 22.5710809,
+                    "lng": 88.4045249
+                }
+            }
+        },
+        "place_id": "ChIJZ8NWM9d1AjoRSq9FuLwqztw",
+        "types": [
+            "postal_code"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "Sector III",
+                "short_name": "Sector III",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_2"
+                ]
+            },
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "Sector III, Bidhannagar, Kolkata, West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.590696,
+                    "lng": 88.422789
+                },
+                "southwest": {
+                    "lat": 22.558384,
+                    "lng": 88.40115999999999
+                }
+            },
+            "location": {
+                "lat": 22.5733423,
+                "lng": 88.4137279
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.590696,
+                    "lng": 88.422789
+                },
+                "southwest": {
+                    "lat": 22.558384,
+                    "lng": 88.40115999999999
+                }
+            }
+        },
+        "place_id": "ChIJAYZcF851AjoRRhDQfcEjfu8",
+        "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_2"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "Bidhannagar",
+                "short_name": "Bidhannagar",
+                "types": [
+                    "political",
+                    "sublocality",
+                    "sublocality_level_1"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "Bidhannagar, Kolkata, West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.603649,
+                    "lng": 88.4484492
+                },
+                "southwest": {
+                    "lat": 22.5469371,
+                    "lng": 88.394724
+                }
+            },
+            "location": {
+                "lat": 22.5796842,
+                "lng": 88.414312
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.603649,
+                    "lng": 88.4484492
+                },
+                "southwest": {
+                    "lat": 22.5469371,
+                    "lng": 88.394724
+                }
+            }
+        },
+        "place_id": "ChIJM2IVGcd1AjoRo9aQPWK8b2k",
+        "types": [
+            "political",
+            "sublocality",
+            "sublocality_level_1"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "Kolkata, West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 23.0083628,
+                    "lng": 88.5428696
+                },
+                "southwest": {
+                    "lat": 22.3436288,
+                    "lng": 88.1165879
+                }
+            },
+            "location": {
+                "lat": 22.572646,
+                "lng": 88.36389500000001
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 23.0083628,
+                    "lng": 88.5428696
+                },
+                "southwest": {
+                    "lat": 22.3436288,
+                    "lng": 88.1165879
+                }
+            }
+        },
+        "place_id": "ChIJZ_YISduC-DkRvCxsj-Yw40M",
+        "types": [
+            "locality",
+            "political"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "North 24 Parganas",
+                "short_name": "North 24 Parganas",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "North 24 Parganas, West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 23.2437441,
+                    "lng": 89.1004976
+                },
+                "southwest": {
+                    "lat": 22.12293,
+                    "lng": 88.33068
+                }
+            },
+            "location": {
+                "lat": 22.6168099,
+                "lng": 88.402895
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 23.2437441,
+                    "lng": 89.1004976
+                },
+                "southwest": {
+                    "lat": 22.12293,
+                    "lng": 88.33068
+                }
+            }
+        },
+        "place_id": "ChIJv975mQSi-DkRI4iUx-rgj0Q",
+        "types": [
+            "administrative_area_level_2",
+            "political"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 27.220707,
+                    "lng": 89.880039
+                },
+                "southwest": {
+                    "lat": 21.524921,
+                    "lng": 85.82095799999999
+                }
+            },
+            "location": {
+                "lat": 22.9867569,
+                "lng": 87.8549755
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 27.220707,
+                    "lng": 89.880039
+                },
+                "southwest": {
+                    "lat": 21.524921,
+                    "lng": 85.82095799999999
+                }
+            }
+        },
+        "place_id": "ChIJh-iXE_8W-jkRCqLnwz06VHE",
+        "types": [
+            "administrative_area_level_1",
+            "political"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 35.513327,
+                    "lng": 97.39535869999999
+                },
+                "southwest": {
+                    "lat": 6.4626999,
+                    "lng": 68.1097
+                }
+            },
+            "location": {
+                "lat": 20.593684,
+                "lng": 78.96288
+            },
+            "location_type": "APPROXIMATE",
+            "viewport": {
+                "northeast": {
+                    "lat": 35.513327,
+                    "lng": 97.39535869999999
+                },
+                "southwest": {
+                    "lat": 6.4626999,
+                    "lng": 68.1097
+                }
+            }
+        },
+        "place_id": "ChIJkbeSa_BfYzARphNChaFPjNc",
+        "types": [
+            "country",
+            "political"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "HCG3+7W",
+                "short_name": "HCG3+7W",
+                "types": [
+                    "plus_code"
+                ]
+            },
+            {
+                "long_name": "Kolkata",
+                "short_name": "Kolkata",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "West Bengal",
+                "short_name": "WB",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "India",
+                "short_name": "IN",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            }
+        ],
+        "formatted_address": "HCG3+7W Kolkata, West Bengal, India",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 22.57575,
+                    "lng": 88.40487499999999
+                },
+                "southwest": {
+                    "lat": 22.575625,
+                    "lng": 88.40474999999999
+                }
+            },
+            "location": {
+                "lat": 22.5757344,
+                "lng": 88.4048656
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 22.5770364802915,
+                    "lng": 88.40616148029149
+                },
+                "southwest": {
+                    "lat": 22.57433851970849,
+                    "lng": 88.40346351970848
+                }
+            }
+        },
+        "place_id": "GhIJoy5jVGOTNkARoNFnUekZVkA",
+        "plus_code": {
+            "compound_code": "HCG3+7W Kolkata, West Bengal, India",
+            "global_code": "7MJCHCG3+7W"
+        },
+        "types": [
+            "plus_code"
+        ]
+    }
+]
