@@ -1,18 +1,10 @@
 import requests, json
-#import googlemaps
 from datetime import datetime
-
-school_1 = {'lat': 40.712776, 'lon': -74.005974}
-school_2 = {'lat': 47.751076,  'lon': -120.740135}
-school_3 = {'lat': 37.774929, 'lon': -122.419418}
-
-city_list = [school_1, school_2, school_3]
-
-user_location = {'lat': 25.806206, 'lon': -80.263124 }
-
 api_key ='AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g'
 url ='https://maps.googleapis.com/maps/api/distancematrix/json?'
 
+
+#Functions
 def dist_between_two_lat_lon(*args):
     from math import asin, cos, radians, sin, sqrt
     lat1, lat2, long1, long2 = map(radians, args)
@@ -30,19 +22,27 @@ def find_closest_lat_lon(data, v):
     except TypeError:
         print('Not a list or not a number.')
 
+#GET info from APP server and DB
+school_1 = {'lat': 40.712776, 'lon': -74.005974}
+school_2 = {'lat': 47.751076,  'lon': -120.740135}
+school_3 = {'lat': 37.774929, 'lon': -122.419418}
+
+city_list = [school_1, school_2, school_3]
+
+user_location = {'lat': 25.806206, 'lon': -80.263124 }
+
 source = find_closest_lat_lon(city_list, user_location)
 
 
 result = requests.get(url + 'origins = ' + source +
                    '&destinations = ' + user_location +
                    '&key = ' + api_key)
-                     
-# return json format result
 
+# return json format result
 closer_drone = source.json()
 eta_time = result.json()
 
 
-
+#Send result as json
 print(closer_drone)
 print(eta_time)
