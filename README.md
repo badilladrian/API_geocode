@@ -1,5 +1,12 @@
 # API_geocode
 
+# REQUEST
+
+``` 
+GET /api/eta-closest-hs?lat=xx&long=xx
+
+
+# RESPONSE
 
 ``` 
 {
@@ -11,4 +18,4 @@
  				"geocodes": [lat & long],      List<int>
 				"image": image_url             str
             }
-}\
+}
