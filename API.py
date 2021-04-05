@@ -23,26 +23,35 @@ def find_closest_lat_lon(data, v):
         print('Not a list or not a number.')
 
 #GET info from APP server and DB
+
 school_1 = {'lat': 40.712776, 'lon': -74.005974}
 school_2 = {'lat': 47.751076,  'lon': -120.740135}
 school_3 = {'lat': 37.774929, 'lon': -122.419418}
 
 city_list = [school_1, school_2, school_3]
 
-user_location = {'lat': 25.806206, 'lon': -80.263124 }
+user_location = {'lat': 25.806206, 'lon': -80.263124 } #lat,lon
+usr_lat = str(user_location['lat']) 
+usr_lon = str(user_location['lon'])
+dest = usr_lat + ',' + usr_lon
+
 
 source = find_closest_lat_lon(city_list, user_location)
+or_lat = str(source['lat'])
+or_lon = str(source['lon'])
+origin = or_lat + ',' + or_lon
+print(origin)
 
 
-result = requests.get(url + 'origins = ' + source +
-                   '&destinations = ' + user_location +
-                   '&key = ' + api_key)
+result = requests.get(url + 'origins=' + origin +
+                   '&destinations=' + dest +
+                   '&key=' + api_key)
 
 # return json format result
-closer_drone = source.json()
+closer_drone = json.dumps(source)
 eta_time = result.json()
-
+ETA = json.dumps(eta_time['rows'][0]['elements'][0]['duration']['text'])    
 
 #Send result as json
-print(closer_drone)
-print(eta_time)
+print("Closer Drone geocode =" +closer_drone)
+print("ETA =" +ETA)

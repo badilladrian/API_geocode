@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 
-def scope_test():
-    def do_local():
-        spam = "local spam"
+# Python code to demonstrate
+# to conert dictionary into string
+# using json.dumps()
 
-    def do_nonlocal():
-        nonlocal spam
-        spam = "nonlocal spam"
+import json
 
-    def do_global():
-        global spam
-        spam = "global spam"
+# initialising dictionary
+test1 = { "testname" : "akshat",
+        "test2name" : "manjeet",
+        "test3name" : "nikhil"}
 
-    spam = "test spam"
-    do_local()
-    print("After local assignment:", spam)
-    do_nonlocal()
-    print("After nonlocal assignment:", spam)
-    do_global()
-    print("After global assignment:", spam)
+# print original dictionary
+print (type(test1))
+print ("initial dictionary = ", test1)
 
-scope_test()
-print("In global scope:", spam)
+# convert dictionary into string
+# using json.dumps()
+result = json.dumps(test1)
+
+# printing result as string
+print ("\n", type(result))
+print ("final string = ", result)
