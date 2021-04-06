@@ -22,6 +22,13 @@ def find_closest_lat_lon(data, v):
     except TypeError:
         print('Not a list or not a number.')
 
+def geo_code_str(geod):
+	lat = str(geod['lat'])
+	lon = str(geod['lon'])
+	geo_str = lat + ',' + lon
+	return(geo_str)
+
+
 #GET info from APP server and DB
 
 school_1 = {'lat': 40.712776, 'lon': -74.005974}
@@ -30,17 +37,12 @@ school_3 = {'lat': 37.774929, 'lon': -122.419418}
 
 city_list = [school_1, school_2, school_3]
 
-user_location = {'lat': 25.806206, 'lon': -80.263124 } #lat,lon
-usr_lat = str(user_location['lat']) 
-usr_lon = str(user_location['lon'])
-dest = usr_lat + ',' + usr_lon
+user_location = {'lat': 40.712776, 'lon': -75.005974 }
+dest = geo_code_str(user_location)
 
 
 source = find_closest_lat_lon(city_list, user_location)
-or_lat = str(source['lat'])
-or_lon = str(source['lon'])
-origin = or_lat + ',' + or_lon
-print(origin)
+origin = geo_code_str(source)
 
 
 result = requests.get(url + 'origins=' + origin +
