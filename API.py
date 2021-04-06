@@ -1,7 +1,12 @@
 import requests, json
+import yaml
 from datetime import datetime
-api_key ='AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g'
-url ='https://maps.googleapis.com/maps/api/distancematrix/json?'
+
+credentials = yaml.load(open('./gmaps.yaml'))
+url = credentials['database']['url']
+api_key = credentials['database']['GOOGLE_API_KEY']
+print("URL: " +url)
+print("Key: " +api_key)
 
 
 #Functions

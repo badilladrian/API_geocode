@@ -1,24 +1,8 @@
 #!/usr/bin/env python3
+import yaml
 
-# Python code to demonstrate
-# to conert dictionary into string
-# using json.dumps()
-
-import json
-
-# initialising dictionary
-test1 = { "testname" : "akshat",
-        "test2name" : "manjeet",
-        "test3name" : "nikhil"}
-
-# print original dictionary
-print (type(test1))
-print ("initial dictionary = ", test1)
-
-# convert dictionary into string
-# using json.dumps()
-result = json.dumps(test1)
-
-# printing result as string
-print ("\n", type(result))
-print ("final string = ", result)
+credentials = yaml.load(open('./gmaps.yaml'))
+url = credentials['database']['url']
+api_key = credentials['database']['GOOGLE_API_KEY']
+print("URL: " +url)
+print("Key: " +api_key)
