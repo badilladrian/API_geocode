@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 googlemaps = "*"
-flask-swagger = "*"
 flask-swagger-ui = "*"
 flask-cors = "*"
+geopy = "*"
 
 [dev-packages]
 

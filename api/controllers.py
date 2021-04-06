@@ -1,8 +1,8 @@
 from models import Drone, User, HighSchool
 
 class ControllerDrones:
-    self._drones = []
-    self._drones_ids = []
+    drones = []
+    drones_ids = []
 
     def get(self, id: int):
         position = self._drones_ids.index(id)
@@ -21,8 +21,8 @@ class ControllerDrones:
 
 
 class ControllerUsers:
-    self._users = []
-    self._usernames = []
+    users = []
+    usernames = []
 
 
     def get(self, username: str):
@@ -42,8 +42,8 @@ class ControllerUsers:
 
 
 class ControllerHighSchools:
-    self._high_schools = []
+    high_schools = []
 
 
 class ControllerDatabase:
-    self._connection_string = ''
+    connection_string = ''

@@ -1,9 +1,7 @@
 class Drone:
-    self._id = ''
-    self._speed = int()
-
     def __init__(self, _id):
         self._id = _id
+        # self increment 
 
     def update(self, data):
         if data.id:
@@ -13,12 +11,10 @@ class Drone:
 
 
 class User:
-    self._username = ''
-    self._geocode = [0.0,
-                    0.0] 
-
-    def __init__(self, _username):
-        self._username = _username
+    def __init__(self, username):
+        self._username = username
+        self._geocode = [0.0,
+                        0.0] 
 
     def update(self, data):
         if data.username:
@@ -28,15 +24,12 @@ class User:
 
 
 class HighSchool:
-    self._name = ''
-    self._address = ''
-    self._image = False
-    self._geocode = [0.0,
-                    0.0] 
-
     def __init__(self, name, address):
         self._name = name
         self._address = address
+        self._image = False
+        self._geocode = [0.0,
+                        0.0] 
 
     def update(self, data):
         if data.name:
