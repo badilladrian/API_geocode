@@ -28,10 +28,10 @@ if __name__ == '__main__':
     settings = {
         'host': 'localhost',
         'port': 27017,
-        'file_path': 'C:\\Users\\migue\\Desktop\\US_School_Database\\',
+        'file_path': '.\\US_School_Database',
         'inserting_batch': 100000,
-        'db_name': 'us_school',
-        'collection_name': 'School_Data'
+        'db_name': 'high_schools',
+        'collection_name': 'HS_data'
     }
 
     # here we have to create the mongoDB connection using the dictionary for the settings
