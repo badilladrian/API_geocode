@@ -36,10 +36,10 @@ drone =  Drone(345)
 def ping():
         return jsonify('Im active!')
 
-@app.route('/safewrd-api', methods=['GET'])
+@app.route('/safewrd', methods=['GET']) #GFM
 def user_location():
     lat, lon = [0.0,0.0]
-
+    #lat, lon = [10.007580834414526, -84.14959156949683]
     if 'lat' in request.args:
         lat = (request.args['lat'])
 

@@ -11,16 +11,16 @@ class Drone:
 
 
 class User:
-    def __init__(self, username):
-        self._username = username
-        self._geocode = [0.0,
+    def __init__(self, userName):
+        self._userName = userName
+        self._geoCode = [0.0,
                         0.0] 
 
     def update(self, data):
-        if data.username:
-            self._username = data.username
-        if data.geocode:
-            self._speed = data.geocode
+        if data.userName:
+            self._userName = data.userName
+        if data.geoCode:
+            self._geoCode = data.geoCode #GFM
 
 
 class HighSchool:
@@ -33,6 +33,6 @@ class HighSchool:
 
     def update(self, data):
         if data.name:
-            self._name = name
+            self._name = data.name #GFM
         if data.speed:
-          self._address = address
+          self._address = data.address #GFM

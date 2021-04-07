@@ -2,18 +2,18 @@ from models import Drone, User, HighSchool
 
 class ControllerDrones:
     drones = []
-    drones_ids = []
+    dronesIds = []
 
     def get(self, id: int):
-        position = self._drones_ids.index(id)
+        position = self._dronesIds.index(id)
         return self._drones[position]
 
     def get_all(self):
         return self._drones
 
-    def create(self, drone_id):
-        new_drone = Drone(drone_id)
-        self._drones.append(new_drone)
+    def create(self, droneId):
+        newDrone = Drone(droneId)
+        self._drones.append(newDrone)
         return True
 
     def update(self, drone: Drone):
@@ -22,19 +22,19 @@ class ControllerDrones:
 
 class ControllerUsers:
     users = []
-    usernames = []
+    userNames = []
 
 
-    def get(self, username: str):
-        position = self._usernames.index(username)
+    def get(self, userName: str):
+        position = self._userNames.index(userName)
         return self._users[position]
 
     def get_all(self):
         return self._users
 
-    def create(self, username):
-        new_user = User(username)
-        self._users.append(new_user)
+    def create(self, userName):
+        newUser = User(userName)
+        self._users.append(newUser)
         return True
 
     def update(self):
@@ -42,8 +42,8 @@ class ControllerUsers:
 
 
 class ControllerHighSchools:
-    high_schools = []
+    highSchools = []
 
 
 class ControllerDatabase:
-    connection_string = ''
+    connectionString = ''
