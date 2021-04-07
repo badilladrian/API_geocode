@@ -9,6 +9,7 @@ googlemaps = "*"
 flask-swagger-ui = "*"
 flask-cors = "*"
 geopy = "*"
+pymongo = "*"
 
 [dev-packages]
 
