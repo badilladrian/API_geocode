@@ -5,15 +5,15 @@ class ControllerDrones:
     dronesIds = []
 
     def get(self, id: int):
-        position = self._dronesIds.index(id)
-        return self._drones[position]
+        posCition = self.dronesIds.index(id)
+        return self.drones[position]
 
     def get_all(self):
-        return self._drones
+        return self.drones
 
     def create(self, droneId):
         newDrone = Drone(droneId)
-        self._drones.append(newDrone)
+        self.drones.append(newDrone)
         return True
 
     def update(self, drone: Drone):

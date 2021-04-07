@@ -6,12 +6,13 @@ from geopy.distance import geodesic
 
 class Utils:
     def __init__(self):
-        school_0 = {'lat':10.007580834414526, 'lon': -84.14959156949683}
         school_1 = {'lat': 40.712776, 'lon': -74.005974}
         school_2 = {'lat': 47.751076,  'lon': -120.740135}
         school_3 = {'lat': 37.774929, 'lon': -122.419418}  
+        school_98 = {'lat':10.007580834414526, 'lon': -84.14959156949683}
+        #school_99 = {'lat':8.539914090009894, 'lon': -81.69951925681292}
         
-        self._school_list = [school_0,school_1, school_2, school_3]
+        self._school_list = [school_1, school_2, school_3,school_98]
         self._google_api = googlemaps.Client(key='AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g')
 
     def dist_between_two_lat_lon(self, *args):

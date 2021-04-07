@@ -29,7 +29,7 @@ app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
 
 controller_utils = Utils()
 controller_drones = ControllerDrones()
-
+controller_drones.create(345)
 drone =  Drone(345)
 
 @app.route('/', methods=['GET'])
@@ -57,8 +57,13 @@ def user_location():
 
     time = (miles_from_user_to_school/80) * 60
     
+    myDrone = controller_drones.get(345)
+    
     result = {
-        "drone_id": drone._id,
+        #"drone_id": drone._id,
+        
+        "drone_id": myDrone._id,
+        "drone_speed": myDrone._speed,
         "miles_user_to_school": str(miles_from_user_to_school) + ' miles',
         "estimated_time": str(time) + ' min',
         "nearest_school":
