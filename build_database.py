@@ -1,29 +1,25 @@
-try:
-    from pymongo import MongoClient
-    import os
-    import csv
-    from pathlib import Path
-except Exception as e:
-    print("Some Modules are Missing ")
+from pymongo import MongoClient
+import os
+import csv
 
 
 class MongoDB:
     def __init__(self, db_name, collection_name, host, port, file_path, inserting_batch, max_pool_size=50):
-        self.db_name = db_name
-        self.collection_name = collection_name
-        self.client = MongoClient(host, port, maxPoolSize=max_pool_size)
-        self.data = self.client.large_data.data
-        self.file_path = file_path
-        self.DB = self.client[self.db_name]
-        self.collection = self.DB[self.collection_name]
-        self.inserting_batch = inserting_batch
+        self._db_name = db_name
+        self._collection_name = collection_name
+        self._client = MongoClient(host, port, maxPoolSize=max_pool_size)
+        self._data = self._client.large_data.data
+        self._file_path = file_path
+        self._DB = self._client[self._db_name]
+        self._collection = self._DB[self._collection_name]
+        self._inserting_batch = inserting_batch
 
     def load_data_to_mongo(self, full_path_file):
         with open(full_path_file, "r", encoding='utf-8') as csv_file:
             csv_reader = csv.DictReader(csv_file)
             csv_reader_list = list(csv_reader)
-            for value in range(0, len(csv_reader_list), self.inserting_batch):
-                self.collection.insert_many(csv_reader_list[value:value + self.inserting_batch], ordered=False)
+            for value in range(0, len(csv_reader_list), self._inserting_batch):
+                self._collection.insert_many(csv_reader_list[value:value + self._inserting_batch], ordered=False)
             csv_file.close()
 
 
@@ -42,13 +38,13 @@ if __name__ == '__main__':
     mongodb = MongoDB(**settings)
 
     # we want to drop the collection, because we want the fresh data that is in the csv files.
-    mongodb.collection.drop()
+    mongodb._collection.drop()
 
     print("Saving data in the database.... ")
-    files_list = os.listdir(mongodb.file_path)
+    files_list = os.listdir(mongodb._file_path)
     for file in files_list:
         if file.endswith('.csv'):
-            full_path_file = mongodb.file_path + file
+            full_path_file = mongodb._file_path + file
             mongodb.load_data_to_mongo(full_path_file=full_path_file)
 
     print("Process finished...")
