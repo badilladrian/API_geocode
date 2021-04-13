@@ -3,7 +3,7 @@ from datetime import datetime
 from utils import Utils
 import pandas as pd
 import os
-from build_database import MongoDB
+from downloads.build_database import MongoDB
 from street_viewer import StreetViewer
 from urllib.parse import quote
 
