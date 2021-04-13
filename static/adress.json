@@ -1,0 +1,836 @@
+[
+    {
+        "address_components": [
+            {
+                "long_name": "1290",
+                "short_name": "1290",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Ridder Park Drive",
+                "short_name": "Ridder Park Dr",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Berryessa",
+                "short_name": "Berryessa",
+                "types": [
+                    "neighborhood",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "San Jose",
+                "short_name": "San Jose",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Santa Clara County",
+                "short_name": "Santa Clara County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "California",
+                "short_name": "CA",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "95131",
+                "short_name": "95131",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "1290 Ridder Park Dr, San Jose, CA 95131, USA",
+        "geometry": {
+            "bounds": {
+                "northeast": {
+                    "lat": 37.3841469,
+                    "lng": -121.8994054
+                },
+                "southwest": {
+                    "lat": 37.3827382,
+                    "lng": -121.9008101
+                }
+            },
+            "location": {
+                "lat": 37.3833101,
+                "lng": -121.900106
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 37.3847915302915,
+                    "lng": -121.8987587697085
+                },
+                "southwest": {
+                    "lat": 37.3820935697085,
+                    "lng": -121.9014567302915
+                }
+            }
+        },
+        "place_id": "ChIJkQiNZQjMj4ARDVylfC-fg0M",
+        "types": [
+            "premise"
+        ]
+    }
+]
+[
+    {
+        "address_components": [
+            {
+                "long_name": "1610",
+                "short_name": "1610",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Brandt Court",
+                "short_name": "Brandt Ct",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Bay Shore",
+                "short_name": "Bay Shore",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Islip",
+                "short_name": "Islip",
+                "types": [
+                    "administrative_area_level_3",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Suffolk County",
+                "short_name": "Suffolk County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New York",
+                "short_name": "NY",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "11706",
+                "short_name": "11706",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "5540",
+                "short_name": "5540",
+                "types": [
+                    "postal_code_suffix"
+                ]
+            }
+        ],
+        "formatted_address": "1610 Brandt Ct, Bay Shore, NY 11706, USA",
+        "geometry": {
+            "location": {
+                "lat": 40.73884109999999,
+                "lng": -73.25718959999999
+            },
+            "location_type": "RANGE_INTERPOLATED",
+            "viewport": {
+                "northeast": {
+                    "lat": 40.74019008029149,
+                    "lng": -73.25584061970848
+                },
+                "southwest": {
+                    "lat": 40.73749211970849,
+                    "lng": -73.2585385802915
+                }
+            }
+        },
+        "place_id": "EigxNjEwIEJyYW5kdCBDdCwgQmF5IFNob3JlLCBOWSAxMTcwNiwgVVNBIhsSGQoUChIJG6bpkGgy6IkR9X-NCIEh3D8Qygw",
+        "types": [
+            "street_address"
+        ]
+    }
+]
+[
+    {
+        "address_components": [
+            {
+                "long_name": "80",
+                "short_name": "80",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Tower Avenue",
+                "short_name": "Tower Ave",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Groton",
+                "short_name": "Groton",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Groton",
+                "short_name": "Groton",
+                "types": [
+                    "administrative_area_level_3",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New London County",
+                "short_name": "New London County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Connecticut",
+                "short_name": "CT",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "06340",
+                "short_name": "06340",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "5312",
+                "short_name": "5312",
+                "types": [
+                    "postal_code_suffix"
+                ]
+            }
+        ],
+        "formatted_address": "80 Tower Ave, Groton, CT 06340, USA",
+        "geometry": {
+            "location": {
+                "lat": 41.33612309999999,
+                "lng": -72.0481561
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 41.3374720802915,
+                    "lng": -72.0468071197085
+                },
+                "southwest": {
+                    "lat": 41.3347741197085,
+                    "lng": -72.04950508029151
+                }
+            }
+        },
+        "place_id": "ChIJrboLa80O5okRfGdha4pGGUM",
+        "plus_code": {
+            "compound_code": "8XP2+CP Groton, CT, USA",
+            "global_code": "87H98XP2+CP"
+        },
+        "types": [
+            "street_address"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "80",
+                "short_name": "80",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "Tower Avenue",
+                "short_name": "Tower Ave",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "North End",
+                "short_name": "North End",
+                "types": [
+                    "neighborhood",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Hartford",
+                "short_name": "Hartford",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Hartford County",
+                "short_name": "Hartford County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Connecticut",
+                "short_name": "CT",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "06120",
+                "short_name": "06120",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "1037",
+                "short_name": "1037",
+                "types": [
+                    "postal_code_suffix"
+                ]
+            }
+        ],
+        "formatted_address": "80 Tower Ave, Hartford, CT 06120, USA",
+        "geometry": {
+            "location": {
+                "lat": 41.797244,
+                "lng": -72.6667859
+            },
+            "location_type": "RANGE_INTERPOLATED",
+            "viewport": {
+                "northeast": {
+                    "lat": 41.7985929802915,
+                    "lng": -72.6654369197085
+                },
+                "southwest": {
+                    "lat": 41.7958950197085,
+                    "lng": -72.6681348802915
+                }
+            }
+        },
+        "place_id": "EiU4MCBUb3dlciBBdmUsIEhhcnRmb3JkLCBDVCAwNjEyMCwgVVNBIhoSGAoUChIJjehnw_ZU5okRvFU2R0_SrvIQUA",
+        "types": [
+            "street_address"
+        ]
+    }
+]
+[
+    {
+        "address_components": [
+            {
+                "long_name": "583",
+                "short_name": "583",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "South Street",
+                "short_name": "South St",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Newburgh",
+                "short_name": "Newburgh",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Orange County",
+                "short_name": "Orange County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New York",
+                "short_name": "NY",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "12550",
+                "short_name": "12550",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "4114",
+                "short_name": "4114",
+                "types": [
+                    "postal_code_suffix"
+                ]
+            }
+        ],
+        "formatted_address": "583 South St, Newburgh, NY 12550, USA",
+        "geometry": {
+            "location": {
+                "lat": 41.5085629,
+                "lng": -74.0342722
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 41.5099118802915,
+                    "lng": -74.0329232197085
+                },
+                "southwest": {
+                    "lat": 41.50721391970851,
+                    "lng": -74.03562118029151
+                }
+            }
+        },
+        "place_id": "ChIJczM7ogAu3YkRc4Q0mGDULJk",
+        "plus_code": {
+            "compound_code": "GX58+C7 Newburgh, NY, USA",
+            "global_code": "87H7GX58+C7"
+        },
+        "types": [
+            "street_address"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "583",
+                "short_name": "583",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "South Street",
+                "short_name": "South St",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Society Hill",
+                "short_name": "Society Hill",
+                "types": [
+                    "neighborhood",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia",
+                "short_name": "Philadelphia",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia County",
+                "short_name": "Philadelphia County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Pennsylvania",
+                "short_name": "PA",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "19147",
+                "short_name": "19147",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "583 South St, Philadelphia, PA 19147, USA",
+        "geometry": {
+            "location": {
+                "lat": 39.942163,
+                "lng": -75.15224839999999
+            },
+            "location_type": "RANGE_INTERPOLATED",
+            "viewport": {
+                "northeast": {
+                    "lat": 39.9435119802915,
+                    "lng": -75.1508994197085
+                },
+                "southwest": {
+                    "lat": 39.9408140197085,
+                    "lng": -75.1535973802915
+                }
+            }
+        },
+        "place_id": "Eik1ODMgU291dGggU3QsIFBoaWxhZGVscGhpYSwgUEEgMTkxNDcsIFVTQSIbEhkKFAoSCfUCW2OeyMaJEdDJ6gI_zxiuEMcE",
+        "types": [
+            "street_address"
+        ]
+    }
+]
+[
+    {
+        "address_components": [
+            {
+                "long_name": "583",
+                "short_name": "583",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "South Street",
+                "short_name": "South St",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Newburgh",
+                "short_name": "Newburgh",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Orange County",
+                "short_name": "Orange County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "New York",
+                "short_name": "NY",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "12550",
+                "short_name": "12550",
+                "types": [
+                    "postal_code"
+                ]
+            },
+            {
+                "long_name": "4114",
+                "short_name": "4114",
+                "types": [
+                    "postal_code_suffix"
+                ]
+            }
+        ],
+        "formatted_address": "583 South St, Newburgh, NY 12550, USA",
+        "geometry": {
+            "location": {
+                "lat": 41.5085629,
+                "lng": -74.0342722
+            },
+            "location_type": "ROOFTOP",
+            "viewport": {
+                "northeast": {
+                    "lat": 41.5099118802915,
+                    "lng": -74.0329232197085
+                },
+                "southwest": {
+                    "lat": 41.50721391970851,
+                    "lng": -74.03562118029151
+                }
+            }
+        },
+        "place_id": "ChIJczM7ogAu3YkRc4Q0mGDULJk",
+        "plus_code": {
+            "compound_code": "GX58+C7 Newburgh, NY, USA",
+            "global_code": "87H7GX58+C7"
+        },
+        "types": [
+            "street_address"
+        ]
+    },
+    {
+        "address_components": [
+            {
+                "long_name": "583",
+                "short_name": "583",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "South Street",
+                "short_name": "South St",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Society Hill",
+                "short_name": "Society Hill",
+                "types": [
+                    "neighborhood",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia",
+                "short_name": "Philadelphia",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia County",
+                "short_name": "Philadelphia County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Pennsylvania",
+                "short_name": "PA",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "19147",
+                "short_name": "19147",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "583 South St, Philadelphia, PA 19147, USA",
+        "geometry": {
+            "location": {
+                "lat": 39.942163,
+                "lng": -75.15224839999999
+            },
+            "location_type": "RANGE_INTERPOLATED",
+            "viewport": {
+                "northeast": {
+                    "lat": 39.9435119802915,
+                    "lng": -75.1508994197085
+                },
+                "southwest": {
+                    "lat": 39.9408140197085,
+                    "lng": -75.1535973802915
+                }
+            }
+        },
+        "place_id": "Eik1ODMgU291dGggU3QsIFBoaWxhZGVscGhpYSwgUEEgMTkxNDcsIFVTQSIbEhkKFAoSCfUCW2OeyMaJEdDJ6gI_zxiuEMcE",
+        "types": [
+            "street_address"
+        ]
+    }
+]
+[
+    {
+        "address_components": [
+            {
+                "long_name": "583",
+                "short_name": "583",
+                "types": [
+                    "street_number"
+                ]
+            },
+            {
+                "long_name": "South Street",
+                "short_name": "South St",
+                "types": [
+                    "route"
+                ]
+            },
+            {
+                "long_name": "Society Hill",
+                "short_name": "Society Hill",
+                "types": [
+                    "neighborhood",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia",
+                "short_name": "Philadelphia",
+                "types": [
+                    "locality",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Philadelphia County",
+                "short_name": "Philadelphia County",
+                "types": [
+                    "administrative_area_level_2",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "Pennsylvania",
+                "short_name": "PA",
+                "types": [
+                    "administrative_area_level_1",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "United States",
+                "short_name": "US",
+                "types": [
+                    "country",
+                    "political"
+                ]
+            },
+            {
+                "long_name": "19147",
+                "short_name": "19147",
+                "types": [
+                    "postal_code"
+                ]
+            }
+        ],
+        "formatted_address": "583 South St, Philadelphia, PA 19147, USA",
+        "geometry": {
+            "location": {
+                "lat": 39.942163,
+                "lng": -75.15224839999999
+            },
+            "location_type": "RANGE_INTERPOLATED",
+            "viewport": {
+                "northeast": {
+                    "lat": 39.9435119802915,
+                    "lng": -75.1508994197085
+                },
+                "southwest": {
+                    "lat": 39.9408140197085,
+                    "lng": -75.1535973802915
+                }
+            }
+        },
+        "place_id": "Eik1ODMgU291dGggU3QsIFBoaWxhZGVscGhpYSwgUEEgMTkxNDcsIFVTQSIbEhkKFAoSCfUCW2OeyMaJEdDJ6gI_zxiuEMcE",
+        "types": [
+            "street_address"
+        ]
+    }
+]

@@ -25,22 +25,22 @@ class MongoDB:
 
 if __name__ == '__main__':
 
+    __location__ = os.path.realpath(
+    os.path.join(os.getcwd(), os.path.dirname(__file__)))
     settings = {
-        'host': 'localhost',
+        'host': '104.236.59.158',
         'port': 27017,
-        'file_path': '.\\US_School_Database',
-        'inserting_batch': 100000,
-        'db_name': 'high_schools',
-        'collection_name': 'HS_data'
+        'file_path': str(__location__) + '/',
+        'inserting_batch': 100,
+        'db_name': 'geocode_api',
+        'collection_name': 'schools'
     }
-
-    # here we have to create the mongoDB connection using the dictionary for the settings
     mongodb = MongoDB(**settings)
 
-    # we want to drop the collection, because we want the fresh data that is in the csv files.
     mongodb._collection.drop()
 
     print("Saving data in the database.... ")
+
     files_list = os.listdir(mongodb._file_path)
     for file in files_list:
         if file.endswith('.csv'):

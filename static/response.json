@@ -1,0 +1,22 @@
+("123",
+[
+    "26.049276",
+    "-80.163124"
+], datetime.datetime(2021,
+4,
+11,
+16,
+17,
+19,
+961879), <models.Drone object at 0x124229d60>,
+"8347.590254679408 miles",
+"1.3333333333333335 speed",
+"6260.692691009555 time",
+{
+    "address": "7301 Melton Rd, Gary, IN 46403, USA",
+    "geocodes": {
+        "lat": 28.4107578,
+        "lon": 75.2595731
+    },
+    "image": "https://www.minnpost.com/wp-content/uploads/2019/11/MinnetonkaHighSchoolEntrance640.png?w=640&strip=all"
+}, None)

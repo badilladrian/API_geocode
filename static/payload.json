@@ -1,0 +1,25 @@
+{
+    "user_data": "123",
+    "user_location": [
+        "25.806206",
+        "-80.263124"
+    ],
+    "date_of_request": "2021-04-08 16:11:01.297945",
+    "payload_id": 0,
+    "drone": {
+        "drone_id": 0,
+        "drone_speed": "1088.5272307213518 miles"
+    },
+    "miles_distance": "1.3333333333333333 speed",
+    "estimated_time": "816.3954230410138 time",
+    "embedded_map": "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=37.4222429,-122.086202,17&heading=151.78&pitch=-0.76&key=AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g",
+    "nearest_school": {
+        "address": "school_address",
+        "geocodes": {
+            "lat": 40.712776,
+            "lon": -74.005974
+        },
+        "school_image": <google_streetview.api.results object at 0x12df74e20>
+    },
+    "airgeos_vote_url": "https://www.aireos.io/network/"
+}

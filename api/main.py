@@ -1,3 +1,4 @@
+import json
 import flask
 import datetime
 from flask import request, jsonify
@@ -5,15 +6,16 @@ from flask_cors import CORS
 from flask_swagger_ui import get_swaggerui_blueprint
 
 from models import Drone
-from controllers import ControllerDrones
+from controllers import ControllerDrones, ControllerHighSchools, ControllerUsers, ControllerPayload, ControllerAPI, ControllerMongo
 
 from utils import Utils
 
-app = flask.Flask(__name__)
-app.config["DEBUG"] = True
-cors = CORS(app)
+import sentry_sdk
+from sentry_sdk.integrations.flask import FlaskIntegration
 
-### swagger specific ###
+# init API
+app = flask.Flask(__name__)
+# Swagger Doc Specs
 SWAGGER_URL = '/swagger'
 API_URL = '/static/swagger.json'
 SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
@@ -24,51 +26,40 @@ SWAGGERUI_BLUEPRINT = get_swaggerui_blueprint(
     }
 )
 app.register_blueprint(SWAGGERUI_BLUEPRINT, url_prefix=SWAGGER_URL)
-### end swagger specific ###
 
+# API configs
+config = {
+    "DEBUG": True,
+    "JSON_SORT_KEYS": False
+}
+app.config.from_mapping(config)
 
+# Init CORS
+cors = CORS(app)
+
+# init controllers objs
 controller_utils = Utils()
+controller_payload = ControllerPayload()
 controller_drones = ControllerDrones()
-
-drone =  Drone(345)
+controlller_schools = ControllerHighSchools()
+controller_mongo = ControllerMongo()
+controller_users = ControllerUsers()
+controller_api = ControllerAPI()
 
 @app.route('/', methods=['GET'])
 def ping():
         return jsonify('Im active!')
 
-@app.route('/safewrd-api', methods=['GET'])
+@app.route('/debug-sentry')
+def trigger_error():
+    division_by_zero = 1 / 0
+
+@app.route('/safewrd', methods=['GET'])
 def user_location():
-    lat, lon = [0.0,0.0]
+    lat, lon, uid = (str(request.args['lat']), str(request.args['lon']), str(request.args['uid']))
+    controller_api.run(lat, lon, uid)
+    response = controller_payload.create(controller_api.solved_request)
+    return jsonify(response.dic())
 
-    if 'lat' in request.args:
-        lat = (request.args['lat'])
-
-    if 'lon' in request.args:
-        lon = (request.args['lon'])
-
-    user_location = [str(lat), str(lon)]
-
-    closest_hs_geocodes = controller_utils.find_closest_lat_lon(controller_utils._school_list,
-                                                    {'lat':float(lat),'lon':float(lon)} )
-
-    miles_from_user_to_school = controller_utils.miles_between(user_location, [str(closest_hs_geocodes['lat']),
-                                                              str(closest_hs_geocodes['lon']) ])
-                
-
-    time = (miles_from_user_to_school/80) * 60
-    
-    result = {
-        "drone_id": drone._id,
-        "miles_user_to_school": str(miles_from_user_to_school) + ' miles',
-        "estimated_time": str(time) + ' min',
-        "nearest_school":
-            {
-                "address": controller_utils.geocode_to_address(closest_hs_geocodes), 
-                "geocodes": closest_hs_geocodes,     
-                "image": 'im_an_image'
-            }
-        }
-
-    return jsonify(result)
-
-app.run()
+if __name__ == '__main__':
+    app.run(host='127.0.0.1', port='5000')

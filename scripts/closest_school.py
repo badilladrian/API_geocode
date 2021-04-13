@@ -24,7 +24,7 @@ school_3 = {'lat': 37.774929, 'lon': -122.419418}
 city_list = [school_1, school_2, school_3]
 
 user_location = {'lat': 25.806206, 'lon': -80.263124 }
-
+print(type(city_list))
 print(find_closest_lat_lon(city_list, user_location))
 
 
