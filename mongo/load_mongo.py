@@ -32,7 +32,7 @@ if __name__ == '__main__':
         'port': 27017,
         'file_path': str(__location__) + '/',
         'inserting_batch': 100,
-        'db_name': 'geocode_api',
+        'db_name': 'geocodes_api',
         'collection_name': 'schools'
     }
     mongodb = MongoDB(**settings)

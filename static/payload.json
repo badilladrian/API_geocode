@@ -1,25 +1,26 @@
 {
     "user_data": "123",
     "user_location": [
-        "25.806206",
-        "-80.263124"
+        "38.8254326",
+        "-97.7021551"
     ],
-    "date_of_request": "2021-04-08 16:11:01.297945",
-    "payload_id": 0,
+    "date_of_request": "2021-04-13 17:47:19.815811",
+    "payload_id": 2,
     "drone": {
-        "drone_id": 0,
-        "drone_speed": "1088.5272307213518 miles"
+        "drone_id": 2,
+        "drone_speed": "2395.59 ml/h"
     },
-    "miles_distance": "1.3333333333333333 speed",
-    "estimated_time": "816.3954230410138 time",
-    "embedded_map": "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=37.4222429,-122.086202,17&heading=151.78&pitch=-0.76&key=AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g",
+    "miles_distance": "3194.12 miles",
+    "estimated_time": "1.33 minutes",
+    "embedded_map": "<iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=Diomede%2C%20AK%2099762%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
     "nearest_school": {
-        "address": "school_address",
-        "geocodes": {
-            "lat": 40.712776,
-            "lon": -74.005974
-        },
-        "school_image": <google_streetview.api.results object at 0x12df74e20>
+        "name": "MORGAN ENTERPRISES",
+        "address": "Diomede, AK 99762, USA",
+        "geocodes": [
+            65.7582327,
+            -168.9519256
+        ],
+        "school_image": "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Diomede%2C%20AK%2099762%2C%20USA&key=AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g"
     },
-    "airgeos_vote_url": "https://www.aireos.io/network/"
+    "aireos_vote_url": "https://www.aireos.io/network/"
 }

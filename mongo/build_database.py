@@ -11,7 +11,7 @@ import pprint
 class MongoDB:
     def __init__(self, max_pool_size=50):
         self._client = MongoClient(['104.236.59.158'], 27017, maxPoolSize=max_pool_size)
-        self._database = self._client['geocode_api']
+        self._database = self._client['geocodes_api']
         self._collection = self._database['schools']
 
     def create(self, school):
@@ -83,10 +83,9 @@ if __name__ == '__main__':
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
     mongodb = MongoDB()
-    mongodb.create({"name":"name", "address":"address", "geocodes": [22.22,-33.33] })
     print("Saving data in the database.... ")
 
     # mongodb.load_school_df()
-    mongodb.load_data_to_mongo1()
+    mongodb.load_data_to_mongo()
 
     print("Process finished...")
