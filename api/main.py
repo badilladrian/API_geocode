@@ -30,23 +30,22 @@ controller_api = ControllerAPI()
          # IMPLEMENT CACHE  LOGIC|
 #  _cache = Cache() <--  OBJ
 
-
 # END POINTS 
 @app.route('/', methods=['GET'])
 def ping():
         return jsonify('Im active!')
 
+
 @app.route('/debug-sentry')                    # How to make sentry to work properly? TASK#6
 def trigger_error():                           # badilladrianch@gmail.com  pass: pythonScorpion   Sentry: https://sentry.io/organizations/tranzmt-inc/issues/
     division_by_zero = 1 / 0
 
+
 @app.route('/safewrd', methods=['POST'])
 def user_location():
-
     data = request.get_json()
     geocodes = data['geocodes']  
     user_uid = data['uid']     
-
     lat, lon, uid = (geocodes[0], geocodes[1], user_uid)
     response = {}
 
@@ -61,7 +60,7 @@ def user_location():
 
         payload = Payload()
         payload.create(args)            
-        response = payload.payload 
+        response = payload.parse()
         # _cache.put_on_cache(response)  this works <-- E.G. cache/cache.json it is incomplete TASK#--3 Write, Read, Load cache JSONs 
     else:
         return response   # return cache response [that's JSON format already]
@@ -72,11 +71,11 @@ def user_location():
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port='5000')  
     
-# TASK#--1 DEPLOY AT SERVER W/ HTTPS + SSL ADDITION   -- uwsgi(?)
-""" ssh root@104.236.59.158   # server info!
+# TASK#--1 Instructions-steps so I can do it how to make HTTPS + SSL at ubuntu server -- uwsgi(?)
+""" ssh root@104.236.59.158   # server info!   # it already has ngix + certificates 
     pass JuicyFruit4y 
-    cd /var/www/html/ """  # it already has ngix + certificates 
-# -> if it is deployed, then it is not possible to make update to code?
-# -> how to have service UP running at server, And be able to do git pull ? 
-
+    cd /var/www/html/ """ 
+# -> if it is deployed, then it is not possible to make pull to code on server side
+# -> if server UP running then no able to do git pull ? 
+# reason why, we need a .txt of the steps so it can be reproduce again
 

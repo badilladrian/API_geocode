@@ -44,6 +44,6 @@ class Utils:
         markers=[user_geocode,school_geocodes]
         custom_marker = gmaps.marker_layer(markers)         
         embedded_map.add_layer(custom_marker)                   # TASK#--2 How to read this saved HTML static/export.html into a valid format to pass it at response
-        embed_minimal_html('export.html', views=[embedded_map]) # this saves it locally - it is needed to then sending inside the response. How-to?
+        # embed_minimal_html('export.html', views=[embedded_map]) # this saves it locally - it is needed to then sending inside the response. How-to?
 
 
