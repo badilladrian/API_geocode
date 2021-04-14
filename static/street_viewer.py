@@ -3,36 +3,44 @@ import os
 import json
 import shortuuid
 
+
 class StreetViewer(object):
-    def __init__(self, location = ''):
-        __location__ = os.path.realpath(  # use this to make current directory reference can be changed
-        os.path.join(os.getcwd(), os.path.dirname(__file__)))
-        
-        self._key = 'AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g' # to be readed from values.yaml w/ os.environ()
+    def __init__(self, location=''):
+        __location__ = os.path.realpath(
+            # use this to make current directory reference can be changed
+            os.path.join(os.getcwd(), os.path.dirname(__file__)))
+
+        self._key = 'AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g'  # to be readed from values.yaml w/ os.environ()
 
         self.size = "640x640"
         self.folder_directory = __location__ + '/saved-images/'
+        self.base_path = __location__
 
-        self.location = location # ADDRESS
+        self.location = location  # ADDRESS
 
         self._meta_params = dict(key=self._key,
-                                location=self.location)
+                                 location=self.location)
         self._pic_params = dict(key=self._key,
-                               location=self.location,
-                               size=self.size)
+                                location=self.location,
+                                size=self.size)
 
-        self.meta_status = {} # to be use to ask for the image
+        self.meta_status = {}  # to be use to ask for the image
 
-        self._id =  shortuuid.uuid()
+        self._id = shortuuid.uuid()
 
+    def check_exists_folder(self, folder_path):
+        if not os.path.isdir(folder_path):
+            os.makedirs(folder_path)
 
-    
+    def check_exists_file(self, file_path):
+        return True if os.path.isfile(file_path) else False
+
     def get_meta(self):
         """
         Method to query the metadata of the address to then save the image
         """
         # saving the metadata as json for later usage
-        meta_name = "meta_{}.json".format(self._id)
+        meta_name = self.folder_directory + "meta_{}.json".format(self._id)
 
         # hit google api for metadata of an address
         meta_response = requests.get(
@@ -45,28 +53,36 @@ class StreetViewer(object):
         self.meta_status = meta_info['status']
 
         if meta_response.ok:
+            json_file_path = self.folder_directory + "meta_{0}.json".format(
+                meta_info['pano_id'])
+            if self.check_exists_file(json_file_path):
+                return meta_info
             print(">>> Obtained Meta from StreetView API:")
             print(meta_info)
+            meta_name = json_file_path
             with open(meta_name, 'w') as file:
                 json.dump(meta_info, file)
+            return meta_info
         else:
             print(">>> Failed to obtain Meta from StreetView API!!!")
             meta_response.close()
-    
-    def save_pic(self):
+            return None
+
+    def save_pic(self, meta_info):
         """
         Method to query the StreetView picture and save to local directory
         """
         # define path to save picture and headers
-        pic_path = "pic_{}.jpg".format(self._id)
-        header_path = "header_{}.json".format(self._id)
+        self.check_exists_folder(self.folder_directory)
+        pic_path = self.folder_directory + "pic_{}.jpg".format(meta_info['pano_id'])
+        header_path = self.folder_directory + "header_{}.json".format(meta_info['pano_id'])
         # only when meta_status is OK will the code run to query picture (cost incurred)
         if self.meta_status == 'OK':
             print(">>> Picture available, requesting now...")
 
             _pic_response = requests.get(
-            'https://maps.googleapis.com/maps/api/streetview?',
-            params=self._pic_params)
+                'https://maps.googleapis.com/maps/api/streetview?',
+                params=self._pic_params)
 
             pic_header = dict(_pic_response.headers)
 
@@ -81,15 +97,29 @@ class StreetViewer(object):
 
                 _pic_response.close()
                 print(">>> COMPLETE!")
+                return pic_path
         else:
             print(">>> Picture not available in StreetView!")
+            return None
 
     def get_picture(self):
-        """ getting the picture can be done from here? or not-- 
+        """ getting the picture can be done from here? or not--
         maybe utils - or from a controller depending on where will be needed"""
-        pass
+        meta_info = self.get_meta()
+        if meta_info is not None:
+            pano_id = meta_info['pano_id']
+            pic_path = self.folder_directory + "pic_{}.jpg".format(pano_id)
+            if self.check_exists_file(pic_path):
+                print(">>> Picture exists!")
+                return pic_path
+            else:
+                pic_path = self.save_pic(meta_info)
+                return pic_path
 
 
-testing_street_viewer = StreetViewer(location='7930 W 26th St, North Riverside, IL 60546, United States')
-testing_street_viewer.get_meta()
-testing_street_viewer.save_pic()      #  TASK#--3 this save images - how to store them to read them and pass them throu json response
+testing_street_viewer = StreetViewer(
+    location='7930 W 26th St, North Riverside, IL 60546, United States')
+# testing_street_viewer.get_meta()
+# testing_street_viewer.save_pic()  # TASK#--3 this save images - how to store them to read them and pass them throu json response
+
+testing_street_viewer.get_picture()

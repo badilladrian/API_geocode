@@ -5,6 +5,9 @@ import itertools
 import shortuuid
 from datetime import datetime
 
+from static.street_viewer import StreetViewer
+
+
 class Drone:
     id_iter = itertools.count() # auto increment at new instance 
     speed = 0
@@ -88,7 +91,7 @@ class Payload(object):
                                 "name": self.args[7]['name'],
                                 "address": self.args[7]['address'], 
                                 "geocodes": self.args[7]['geocodes'],   # making API call to google to get image but not saving it -- TASK#--3 return saved image from street_viewer
-                                "school_image":  "https://maps.googleapis.com/maps/api/streetview?size=600x300&location={}&key=AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g".format(self.args[7]['URL']), 
+                                "school_image": StreetViewer(location=self.args[7]['URL']).get_picture()
                                 },                                                                                   # hits google with school address
                     "aireos_vote_url": "https://www.aireos.io/network/" # ignore this value
             }      
