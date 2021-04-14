@@ -4,12 +4,7 @@ import gmaps
 import googlemaps
 from math import cos, asin, sqrt
 from geopy.distance import geodesic
-from street_viewer import StreetViewer
 from ipywidgets.embed import embed_minimal_html
-
-currentdir = os.path.dirname(os.path.realpath(__file__))
-parentdir = os.path.dirname(currentdir)
-sys.path.append(parentdir)  """This is to make imports from other files"""
 
 class Utils:
     def __init__(self):
@@ -45,10 +40,10 @@ class Utils:
         """ Gmaps to create HTML map with two markers geolocations"""
         embedded_map = gmaps.figure()
         user_geocode = (float(user_location[0]),float(user_location[1]))
-        school_geocodes = (float(school_geocodes[0]),float(school_geocodes[1]))
+        school_geocodes = (float(school_geocodes['lat']),float(school_geocodes['lon']))
         markers=[user_geocode,school_geocodes]
         custom_marker = gmaps.marker_layer(markers)         
-        embedded_map.add_layer(custom_marker) 
+        embedded_map.add_layer(custom_marker)                   # TASK#--2 How to read this saved HTML static/export.html into a valid format to pass it at response
         embed_minimal_html('export.html', views=[embedded_map]) # this saves it locally - it is needed to then sending inside the response. How-to?
 
 

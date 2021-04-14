@@ -92,4 +92,4 @@ class StreetViewer(object):
 
 testing_street_viewer = StreetViewer(location='7930 W 26th St, North Riverside, IL 60546, United States')
 testing_street_viewer.get_meta()
-testing_street_viewer.save_pic()
+testing_street_viewer.save_pic()      #  TASK#--3 this save images - how to store them to read them and pass them throu json response

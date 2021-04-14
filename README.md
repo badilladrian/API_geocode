@@ -9,7 +9,7 @@ POST /safewrd
 
         {
         "geocodes": [38.8254326, -97.7021551],
-        "uid": CA308008-421B-11EB-B2BF-EDEFCE1D72FE
+        "uid": "CA308008-421B-11EB-B2BF-EDEFCE1D72FE"
         }
 ``` 
 

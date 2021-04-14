@@ -6,7 +6,7 @@ import shortuuid
 from datetime import datetime
 
 class Drone:
-    id_iter = itertools.count() # auto increment every instanciation 
+    id_iter = itertools.count() # auto increment at new instance 
     speed = 0
     def __init__(self):
         self.id_iter = next(Drone.id_iter)
@@ -32,7 +32,7 @@ class Payload(object):
     id_iter = itertools.count() # auto increment id
     def __init__(self):
         self.id_iter = next(Payload.id_iter)
-        self.payload = {}
+        self.payload = {} # HERE IS THE MAIN RESPONSE OF API 
         self.args = [] # all the data that goes into payload
 
     def generate_unique_id(self, id_ctr):       # to make it better than just 0,1,2.... n
@@ -55,7 +55,7 @@ class Payload(object):
                                     },
                             "miles_distance":  miles, 
                             "estimated_time":  eta_time, 
-                            "embedded_map": 'NA',                
+                            "embedded_map": 'NA',   # TASK#--2            
                             "nearest_school":
                                         {
                                         "name": school_dict['name'],
@@ -88,7 +88,7 @@ class Payload(object):
                                 {
                                 "name": self.args[7]['name'],
                                 "address": self.args[7]['address'], 
-                                "geocodes": self.args[7]['geocodes'],   # making API call to google to get image, should had saved it with street_viewer and return from project itself.
+                                "geocodes": self.args[7]['geocodes'],   # making API call to google to get image but not saving it -- TASK#--3 return saved image from street_viewer
                                 "school_image":  "https://maps.googleapis.com/maps/api/streetview?size=600x300&location={}&key=AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g".format(self.args[7]['URL']), 
                                 },                                                                                   # hits google with school address
                     "aireos_vote_url": "https://www.aireos.io/network/" # ignore this value

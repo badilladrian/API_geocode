@@ -4,7 +4,6 @@ from utils import Utils
 import pandas as pd
 import os
 from build_database import MongoDB
-from street_viewer import StreetViewer
 from urllib.parse import quote
 
 """Controllers are to invoke CRUD operations at models eventually"""
@@ -126,10 +125,12 @@ class ControllerAPI:
     solved_request = {}
     utils = {}
     controller_school = {}
+    controller_drones = {}
     def __init__(self, *args):
         self.utils = Utils() # all calculations and calls is in Utils
         self.solved_request =  {}
         self.controller_school = ControllerHighSchools()
+        self.controller_drones = ControllerDrones()
 
     def run(self, lat, lon, uid): # requests params
         request =  {'lat':lat, 'lon':lon, 'uid': uid} # creates dict to pass it on in the pipeline process
@@ -140,21 +141,23 @@ class ControllerAPI:
         then use the haversine that recieves the list of school_geocodes vs. user_geolocation
         once it finds the closest school (it was only throu geocode) it looks for which school has those geocodes
         in the school_obj lists to retrieve all data [full Address, Name, Geocodes, image]* no image yet """
-        user_location= {"lat":float(request['lat']), "lon":float(request['lon'])}
+
+        user_location= { "lat": float(request['lat']), "lon": float(request['lon']) }
 
         self.controller_school.loadCollection()
 
         schools_geocodes = [ school._geocodes for school in self.controller_school.school_objs]
 
-        closest_school_gecodes_from_user = self.utils.closest(schools_geocodes, user_location)
+        closest_gecodes_from_user = self.utils.closest(schools_geocodes, user_location)
 
-        miles_userlocation_to_school = self.utils.miles_between(user_location, [str(closest_gecodes['lat']),
-                                                                str(closest_gecodes['lon'])])
+        miles_userlocation_to_school = self.utils.miles_between(user_location, [str(closest_gecodes_from_user['lat']),
+                                                                                str(closest_gecodes_from_user['lon'])])
 
-        winner_school = [ school for school in self.controller_school.school_objs if closest_gecodes==school._geocodes]
+        winner_school = [ school for school in self.controller_school.school_objs if closest_gecodes_from_user == school._geocodes]
+
 
                 # list of result data to pass to start creating the response
-        data = [request, closest_school_gecodes_from_user, miles_userlocation_to_school, winner_school[0]]
+        data = [request, closest_gecodes_from_user, miles_userlocation_to_school, winner_school[0]]
 
         result = self.create_result(data)
 
@@ -166,16 +169,15 @@ class ControllerAPI:
         school = data[3]  # these values come from above process_request().
         distance = data[2]
         speed = (distance/80) * 60 
-
+        
         # street_view = StreetViewer(location=school._address)       HERE WE USE THE STREET VIEWER
         # meta = street_view.get_meta()                             SAVES THE IMAGE IN DIRECTORY
-        # picture = street_view.get_pic()                            HOW THEN TO RETURN IT ??
-        
+        # picture = street_view.get_pic()                            HOW THEN TO RETURN IT ?? 
         return (
                 data[0]['uid'], # user_uid from request
                 user_geocodes, # user geocodes from request
                 datetime.now(), #timestamp
-                ControllerDrones.create(), # drone
+                self.controller_drones.create(), # drone
                 '{:.2f} miles'.format(float(distance)), # miles from user to drone [Drone are in HighSchools!]
                 '{:.2f} minutes'.format(float(distance/speed)), # time will always be 1.3 minutes
                 '{:.2f} ml/h'.format(float(speed)), # speed  drone needs to go to get in 1.3 minutes
@@ -185,5 +187,5 @@ class ControllerAPI:
                         "geocodes": school._geocodes,  
                         "URL": quote(school._address)  # saved image should go here | currently: address quote to hit GoogleAPI everytime E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
                     },
-                    self.utils.google_map_markers(user_geocodes, school_geocodes)
+                    self.utils.google_map_markers(user_geocodes, school._geocodes)
                 )
