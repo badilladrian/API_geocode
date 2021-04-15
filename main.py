@@ -69,7 +69,7 @@ def user_location():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port='5000')  
+    app.run(host='0.0.0.0', port='5000', ssl_context='adhoc')
     
 # TASK#--1 Instructions-steps so I can do it how to make HTTPS + SSL at ubuntu server -- uwsgi(?)
 """ ssh root@104.236.59.158   # server info!   # it already has ngix + certificates 
