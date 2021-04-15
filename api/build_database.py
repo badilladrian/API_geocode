@@ -4,7 +4,7 @@ import csv
 import pandas as pd
 import googlemaps
 from bson.objectid import ObjectId
-from models import HighSchool
+from api.models import HighSchool
 import pprint
 
 

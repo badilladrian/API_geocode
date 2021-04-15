@@ -8,10 +8,10 @@ from flask_cors import CORS
 import sentry_sdk
 from sentry_sdk.integrations.flask import FlaskIntegration
 
-from models import Payload
-from utils import Utils
+from api.models import Payload
+from api.utils import Utils
 # from cache import Cache 
-from controllers import ControllerHighSchools, ControllerAPI, ControllerMongo
+from api.controllers import ControllerHighSchools, ControllerAPI, ControllerMongo
 
 app = flask.Flask(__name__)
 
