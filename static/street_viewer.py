@@ -52,17 +52,15 @@ class StreetViewer(object):
 
         # meta_status is used in get_pic method to avoid ask for not available pictures
         self.meta_status = meta_info['status']
-        if self.meta_status == "ZERO_RESULTS":
-            meta_response.close()
-            return None
 
         if meta_response.ok:
+            if self.meta_status == "ZERO_RESULTS":
+                meta_info['pano_id'] = "ZERO_RESULTS-" + self.location
             json_file_path = self.folder_directory + "meta_{0}.json".format(
                 meta_info['pano_id'])
             if self.check_exists_file(json_file_path):
                 return meta_info
             print(">>> Obtained Meta from StreetView API:")
-            print(meta_info)
             meta_name = json_file_path
             with open(meta_name, 'w') as file:
                 json.dump(meta_info, file)
@@ -81,7 +79,7 @@ class StreetViewer(object):
         pic_path = self.folder_directory + "pic_{}.jpg".format(meta_info['pano_id'])
         header_path = self.folder_directory + "header_{}.json".format(meta_info['pano_id'])
         # only when meta_status is OK will the code run to query picture (cost incurred)
-        if self.meta_status == 'OK':
+        if self.meta_status == 'OK' or self.meta_status == 'ZERO_RESULTS':
             print(">>> Picture available, requesting now...")
 
             _pic_response = requests.get(
