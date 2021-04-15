@@ -41,6 +41,7 @@ class StreetViewer(object):
         """
         # saving the metadata as json for later usage
         meta_name = self.folder_directory + "meta_{}.json".format(self._id)
+        print(self._meta_params)
 
         # hit google api for metadata of an address
         meta_response = requests.get(
@@ -51,6 +52,9 @@ class StreetViewer(object):
 
         # meta_status is used in get_pic method to avoid ask for not available pictures
         self.meta_status = meta_info['status']
+        if self.meta_status == "ZERO_RESULTS":
+            meta_response.close()
+            return None
 
         if meta_response.ok:
             json_file_path = self.folder_directory + "meta_{0}.json".format(
