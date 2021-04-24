@@ -28,6 +28,8 @@ class StreetViewer(object):
 
         self._id = shortuuid.uuid()
 
+        self.pano_id = ''
+
     def check_exists_folder(self, folder_path):
         if not os.path.isdir(folder_path):
             os.makedirs(folder_path)
@@ -41,7 +43,6 @@ class StreetViewer(object):
         """
         # saving the metadata as json for later usage
         meta_name = self.folder_directory + "meta_{}.json".format(self._id)
-        print(self._meta_params)
 
         # hit google api for metadata of an address
         meta_response = requests.get(
@@ -49,16 +50,12 @@ class StreetViewer(object):
             params=self._meta_params)
 
         meta_info = meta_response.json()
-
+        keys = meta_info.keys()
         # meta_status is used in get_pic method to avoid ask for not available pictures
         self.meta_status = meta_info['status']
-        if self.meta_status == "ZERO_RESULTS":
-            meta_response.close()
-            return None
 
         if meta_response.ok:
-            json_file_path = self.folder_directory + "meta_{0}.json".format(
-                meta_info['pano_id'])
+            json_file_path = self.folder_directory + "meta_{0}.json".format( self.pano_id)
             if self.check_exists_file(json_file_path):
                 return meta_info
             print(">>> Obtained Meta from StreetView API:")

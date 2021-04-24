@@ -163,29 +163,26 @@ class ControllerAPI:
 
         return result
 
-    def create_result(self, data): # import pdb; pdb.set_trance() I use this to DEBUG
+    def create_result(self, data):
         """ Creates a dict with all the values after process has  been finished to give to PAYLOAD obj"""
         user_geocodes = [data[0]['lat'], data[0]['lon']]
-        school = data[3]  # these values come from above process_request().
+        school = data[3] 
         distance = data[2]
         speed = (distance/80) * 60 
-        
-        # street_view = StreetViewer(location=school._address)       HERE WE USE THE STREET VIEWER
-        # meta = street_view.get_meta()                             SAVES THE IMAGE IN DIRECTORY
-        # picture = street_view.get_pic()                            HOW THEN TO RETURN IT ?? 
+
         return (
-                data[0]['uid'], # user_uid from request
+                data[0]['uid'],
                 user_geocodes, # user geocodes from request
                 datetime.now(), #timestamp
                 self.controller_drones.create(), # drone
                 '{:.2f} miles'.format(float(distance)), # miles from user to drone [Drone are in HighSchools!]
                 '{:.2f} minutes'.format(float(distance/speed)), # time will always be 1.3 minutes
-                '{:.2f} ml/h'.format(float(speed)), # speed  drone needs to go to get in 1.3 minutes
+                '{:.2f} ml/h'.format(float(speed)), # speed the drone needs to be to get in 1.3 minutes
                     { # school data 
                         "name": school._name,
                         "address": school._address, 
                         "geocodes": school._geocodes,  
-                        "URL": quote(school._address)  # saved image should go here | currently: address quote to hit GoogleAPI everytime E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
+                        "URL": quote(school._address)  # E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
                     },
                     self.utils.google_map_markers(user_geocodes, school._geocodes)
                 )
