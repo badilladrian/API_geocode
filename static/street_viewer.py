@@ -10,7 +10,7 @@ class StreetViewer(object):
             # use this to make current directory reference can be changed
             os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
-        self._key = 'AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g'  # to be readed from values.yaml w/ os.environ()
+        self._key = 'AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY'  # to be readed from values.yaml w/ os.environ()
 
         self.size = "640x640"
         self.folder_directory = __location__ + '/saved-images/'
@@ -28,6 +28,8 @@ class StreetViewer(object):
 
         self._id = shortuuid.uuid()
 
+        self.pano_id = ''
+
     def check_exists_folder(self, folder_path):
         if not os.path.isdir(folder_path):
             os.makedirs(folder_path)
@@ -41,7 +43,6 @@ class StreetViewer(object):
         """
         # saving the metadata as json for later usage
         meta_name = self.folder_directory + "meta_{}.json".format(self._id)
-        print(self._meta_params)
 
         # hit google api for metadata of an address
         meta_response = requests.get(
@@ -49,7 +50,7 @@ class StreetViewer(object):
             params=self._meta_params)
 
         meta_info = meta_response.json()
-
+        keys = meta_info.keys()
         # meta_status is used in get_pic method to avoid ask for not available pictures
         self.meta_status = meta_info['status']
 

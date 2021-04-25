@@ -35,8 +35,8 @@ def ping():
         return jsonify('Im active!')
 
 
-@app.route('/debug-sentry')                    # How to make sentry to work properly? TASK#6
-def trigger_error():                           # badilladrianch@gmail.com  pass: pythonScorpion   Sentry: https://sentry.io/organizations/tranzmt-inc/issues/
+@app.route('/debug-sentry')                   
+def trigger_error():                          
     division_by_zero = 1 / 0
 
 
@@ -44,7 +44,8 @@ def trigger_error():                           # badilladrianch@gmail.com  pass:
 def user_location():
     data = request.get_json()
     geocodes = data['geocodes']  
-    user_uid = data['uid']     
+    user_uid = data['uid']  
+    size = data['size']  
     lat, lon, uid = (geocodes[0], geocodes[1], user_uid)
     response = {}
 
@@ -52,7 +53,7 @@ def user_location():
     # response = _cache.between_two_miles(lat, lon, user_uid)
 
     if response == {}:           
-        controller_api.run(lat, lon, uid)
+        controller_api.run(lat, lon, uid, size)
         args = controller_api.solved_request
         payload = Payload()
         payload.create(args)            

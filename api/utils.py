@@ -8,7 +8,7 @@ from ipywidgets.embed import embed_minimal_html
 
 class Utils:
     def __init__(self):
-        self.api_key = 'AIzaSyCL3WravFN_wNUfKU6cC4QRWAOzfbfo49g'
+        self.api_key = 'AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY'
         gmaps.configure(api_key=self.api_key) 
         self.google_client = googlemaps.Client(key=self.api_key)
 

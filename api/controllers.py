@@ -132,8 +132,8 @@ class ControllerAPI:
         self.controller_school = ControllerHighSchools()
         self.controller_drones = ControllerDrones()
 
-    def run(self, lat, lon, uid): # requests params
-        request =  {'lat':lat, 'lon':lon, 'uid': uid} # creates dict to pass it on in the pipeline process
+    def run(self, lat, lon, uid, size): # requests params
+        request =  {'lat':lat, 'lon':lon, 'uid': uid, 'size':size} # creates dict to pass it on in the pipeline process
         self.solved_request = self.process_request(request) # below method saves into self.attribute
 
     def process_request(self, request):
@@ -155,34 +155,35 @@ class ControllerAPI:
 
         winner_school = [ school for school in self.controller_school.school_objs if closest_gecodes_from_user == school._geocodes]
 
-
                 # list of result data to pass to start creating the response
-        data = [request, closest_gecodes_from_user, miles_userlocation_to_school, winner_school[0]]
+        data = [request, closest_gecodes_from_user, miles_userlocation_to_school, winner_school[0], request['size']]
 
         result = self.create_result(data)
 
         return result
 
-    def create_result(self, data): # import pdb; pdb.set_trance() I use this to DEBUG
+    def create_result(self, data):
         """ Creates a dict with all the values after process has  been finished to give to PAYLOAD obj"""
         user_geocodes = [data[0]['lat'], data[0]['lon']]
-        school = data[3]  # these values come from above process_request().
+        school = data[3] 
         distance = data[2]
         speed = (distance/80) * 60 
+        size = data[4]
         
         return (
-                data[0]['uid'], # user_uid from request
+                data[0]['uid'],
                 user_geocodes, # user geocodes from request
                 datetime.now(), #timestamp
                 self.controller_drones.create(), # drone
                 '{:.2f} miles'.format(float(distance)), # miles from user to drone [Drone are in HighSchools!]
                 '{:.2f} minutes'.format(float(distance/speed)), # time will always be 1.3 minutes
-                '{:.2f} ml/h'.format(float(speed)), # speed  drone needs to go to get in 1.3 minutes
+                '{:.2f} ml/h'.format(float(speed)), # speed the drone needs to be to get in 1.3 minutes
                     { # school data 
                         "name": school._name,
                         "address": school._address, 
                         "geocodes": school._geocodes,  
-                        "URL": quote(school._address)  # saved image should go here | currently: address quote to hit GoogleAPI everytime E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
+                        "URL": quote(school._address)  # E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
                     },
-                    self.utils.google_map_markers(user_geocodes, school._geocodes)
+                    size
+                    # self.utils.google_map_markers(user_geocodes, school._geocodes)
                 )

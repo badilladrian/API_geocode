@@ -9,6 +9,7 @@ from datetime import datetime
 class Drone:
     id_iter = itertools.count()
     speed = 0
+    id_iter = itertools.count() 
     def __init__(self):
         self.id_iter = next(Drone.id_iter)
         self.speed = 0
@@ -42,7 +43,7 @@ class Payload(object):
         return '{}_safewrd_{}'.format(id_ctr, add_unique_value)
         
     def create(self,args):
-        user , geocodes, timestamp, drone, miles, speed, eta_time, school_dict, map_ = args
+        user , geocodes, timestamp, drone, miles, speed, eta_time, school_dict, size = args
         self.args = args
 
         self.payload =   {
@@ -87,7 +88,7 @@ class Payload(object):
                                 "name": self.args[7]['name'],
                                 "address": self.args[7]['address'], 
                                 "geocodes": self.args[7]['geocodes'],
-                                "school_image": 'https://maps.googleapis.com/maps/api/streetview?size=600x300&location={}&key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY'.format(self.args[7]['URL'])
+                                "school_image": 'https://maps.googleapis.com/maps/api/streetview?size={}&location={}&key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY'.format(self.args[8], self.args[7]['URL'])
                     },                                                 
                     "aireos_vote_url": "https://www.aireos.io/network/"
             }      
