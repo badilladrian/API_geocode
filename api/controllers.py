@@ -103,10 +103,10 @@ class ControllerHighSchools:
                 lat_lon_dic = {"lat": lat, "lon" : lon}
                 list_latlon.append(dict(lat_lon_dic))
             except:
-                print(type(extract_geocodes), extract_geocodes) # see why it failed
+                print(type(extract_geocodes), extract_geocodes)
         for elem in range(0,len(list_latlon)):
             self.school_objs.append(HighSchool(name=list_names[elem], address=list_addresses[elem], geocodes=list_latlon[elem]))
-                                  # creates a list of all schools_objs_data this is main data source of program
+
 class ControllerMongo:
     def __init__(self):
         self._mongodb = MongoDB()
@@ -170,9 +170,6 @@ class ControllerAPI:
         distance = data[2]
         speed = (distance/80) * 60 
         
-        # street_view = StreetViewer(location=school._address)       HERE WE USE THE STREET VIEWER
-        # meta = street_view.get_meta()                             SAVES THE IMAGE IN DIRECTORY
-        # picture = street_view.get_pic()                            HOW THEN TO RETURN IT ?? 
         return (
                 data[0]['uid'], # user_uid from request
                 user_geocodes, # user geocodes from request

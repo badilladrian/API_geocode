@@ -58,24 +58,8 @@ class MongoDB:
     def csv_to_json(self):
         __location__ = os.path.realpath(
         os.path.join(os.getcwd(), os.path.dirname(__file__)))        
-        data = pd.read_csv(str(__location__) +'/HS_ADR_GS_A.csv',usecols= ['name','address', 'geocodes'])
+        data = pd.read_csv(str(__location__) +'/HS_ADR_GS_A.csv',usecols= ['Name','Address', 'Geocodes'])
         return data.to_dict()
-
-    # def add_geoodes(self):
-    #     df = pd.read_csv("HS_data_no_repeated.csv")
-    #     geocodes=[]
-    #     index = 0
-    #     while index < int(df.size-1):
-    #         address = df.iloc[index]['Address']
-    #         geocode_from_school = self.gmaps.geocode(address) 
-    #         if geocode_from_school:    
-    #             geocodes= geocode_from_school[0]["geometry"]['location']
-    #         index = index + 1
-    #     df['Geocodes'] = pd.geocodes(geocodes)
-    #     df.to_csv(index=False)
-                
-
-
 
 if __name__ == '__main__':
 
