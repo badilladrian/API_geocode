@@ -146,9 +146,12 @@ class ControllerAPI:
 
         self.controller_school.loadCollection()
 
-        schools_geocodes = [ school._geocodes for school in self.controller_school.school_objs]
+        schools_geocodes = [ ( float(school._geocodes['lat']), float(school._geocodes['lon']) ) for school in self.controller_school.school_objs]
+     #  schools_geocodes = [ {'lat': float(school._geocodes['lat']), 'lon': float(school._geocodes['lon']) } for school in self.controller_school.school_objs]
+        schools_geocodes.sort()
+        neighbors_schools = self.utils.get_neighbors(schools_geocodes, (float(request['lat']), float(request['lon'])))
 
-        closest_gecodes_from_user = self.utils.closest(schools_geocodes, user_location)
+        closest_gecodes_from_user = { "lat": float(neighbors_schools[0]), "lon": float(neighbors_schools[1]) }
 
         miles_userlocation_to_school = self.utils.miles_between(user_location, [str(closest_gecodes_from_user['lat']),
                                                                                 str(closest_gecodes_from_user['lon'])])
