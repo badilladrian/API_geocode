@@ -11,7 +11,7 @@ from sentry_sdk.integrations.flask import FlaskIntegration
 from api.models import Payload
 from api.utils import Utils
 # from cache import Cache 
-from api.controllers import ControllerHighSchools, ControllerAPI, ControllerMongo
+from api.controllers import ControllerAPI
 
 app = flask.Flask(__name__)
 

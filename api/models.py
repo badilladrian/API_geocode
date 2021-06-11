@@ -43,7 +43,7 @@ class Payload(object):
         return '{}_safewrd_{}'.format(id_ctr, add_unique_value)
         
     def create(self,args):
-        user , geocodes, timestamp, drone, miles, speed, eta_time, school_dict, size = args
+        user , geocodes, user_address, timestamp, drone, miles, speed, eta_time, school_dict = args
         self.args = args
 
         self.payload =   {
@@ -69,26 +69,27 @@ class Payload(object):
                     }
 
 
-
     def parse(self):
-        iframe = """<iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q={}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>""".format(self.args[7]['URL'])
+        iframe = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY&origin={}&destination={}".format(self.args[2], self.args[8]['URL'])
         self.payload =   {
                     "user_data": str(self.args[0]),  # uid
                     "user_location": self.args[1],  # user_geocodes 
-                    "date_of_request": str(self.args[2]),  # time stamp
+                    "user_address": self.args[2],
+                    "date_of_request": str(self.args[3]),  # time stamp
                     "payload_id": self.generate_unique_id(self.id_iter), # auto-increment payload id
                     "drone": { 
-                            "drone_id" : self.args[3].id_iter, # auto-increment drone id
-                            "drone_speed" :  self.args[6], # drone speed
+                            "drone_id" : self.args[4].id_iter, # auto-increment drone id
+                            "drone_speed" :  self.args[7], # drone speed
                             },
-                    "miles_distance":  self.args[4], # distance between userlocation closest schoool
-                    "estimated_time":  self.args[5], # always 1.3 minutes
-                    "embedded_map": iframe,  # iFrame with school marker
+                    "miles_distance":  self.args[5], # distance between userlocation closest schoool
+                    "estimated_time":  self.args[6], # always 1.3 minutes
+                    "embedded_map": "iframe",  # iFrame with school marker
                     "nearest_school": {
-                                "name": self.args[7]['name'],
-                                "address": self.args[7]['address'], 
-                                "geocodes": self.args[7]['geocodes'],
-                                "school_image": 'https://maps.googleapis.com/maps/api/streetview?size={}&location={}&key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY'.format(self.args[8], self.args[7]['URL'])
+                                "name": self.args[8]['name'],
+                                "address": self.args[8]['address'], 
+                                "geocodes": self.args[8]['geocodes'],
+                                "school_image": 'https://maps.googleapis.com/maps/api/streetview?size=800x600&location={}&key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY' \
+                                    .format(self.args[8]['URL'])
                     },                                                 
                     "aireos_vote_url": "https://www.aireos.io/network/"
             }      

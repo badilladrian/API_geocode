@@ -132,8 +132,8 @@ class ControllerAPI:
         self.controller_school = ControllerHighSchools()
         self.controller_drones = ControllerDrones()
 
-    def run(self, lat, lon, uid, size): # requests params
-        request =  {'lat':lat, 'lon':lon, 'uid': uid, 'size':size} # creates dict to pass it on in the pipeline process
+    def run(self, lat, lon, uid): # requests params
+        request =  {'lat':lat, 'lon':lon, 'uid': uid} # creates dict to pass it on in the pipeline process
         self.solved_request = self.process_request(request) # below method saves into self.attribute
 
     def process_request(self, request):
@@ -146,20 +146,24 @@ class ControllerAPI:
 
         self.controller_school.loadCollection()
 
-        schools_geocodes = [ ( float(school._geocodes['lat']), float(school._geocodes['lon']) ) for school in self.controller_school.school_objs]
-     #  schools_geocodes = [ {'lat': float(school._geocodes['lat']), 'lon': float(school._geocodes['lon']) } for school in self.controller_school.school_objs]
-        schools_geocodes.sort()
-        neighbors_schools = self.utils.get_neighbors(schools_geocodes, (float(request['lat']), float(request['lon'])))
+        # schools_geocodes = [ ( float(school._geocodes['lat']), float(school._geocodes['lon']) ) for school in self.controller_school.school_objs]
+        schools_geocodes = [ {'lat': float(school._geocodes['lat']), 'lon': float(school._geocodes['lon']) } for school in self.controller_school.school_objs]
+        # school_geocode = self.utils.get_closest((float(request['lat']), float(request['lon'])), schools_geocodes)
 
-        closest_gecodes_from_user = { "lat": float(neighbors_schools[0]), "lon": float(neighbors_schools[1]) }
+        distances = []
+        schools = []
+        for school in schools_geocodes:
+            miles_userlocation_to_school = self.utils.miles_between(user_location, school)
+            distances.append(miles_userlocation_to_school)
+            schools.append(school)
+        closest_miles = min(distances)
+        position = distances.index(closest_miles)
+        winner_geocode = schools[position]
 
-        miles_userlocation_to_school = self.utils.miles_between(user_location, [str(closest_gecodes_from_user['lat']),
-                                                                                str(closest_gecodes_from_user['lon'])])
-
-        winner_school = [ school for school in self.controller_school.school_objs if closest_gecodes_from_user == school._geocodes]
+        winner_school = [ school for school in self.controller_school.school_objs if winner_geocode == school._geocodes]
 
                 # list of result data to pass to start creating the response
-        data = [request, closest_gecodes_from_user, miles_userlocation_to_school, winner_school[0], request['size']]
+        data = [request, closest_miles, miles_userlocation_to_school, winner_school[0]]
 
         result = self.create_result(data)
 
@@ -169,17 +173,26 @@ class ControllerAPI:
         """ Creates a dict with all the values after process has  been finished to give to PAYLOAD obj"""
         user_geocodes = [data[0]['lat'], data[0]['lon']]
         school = data[3] 
-        distance = data[2]
-        speed = (distance/80) * 60 
-        size = data[4]
-        
+        distance = data[1]
+        speed = (distance/40) * 60   
+        time = distance/speed
+        if time > 2.0:
+           for spd in range(40,80):
+                speed = (distance/spd) * 60   
+                time = distance/speed
+                if time <= 2.0:
+                    break
+    
+        flat_user_address = self.utils.address_from_geocode(user_geocodes)
+        user_address = str(flat_user_address)
         return (
                 data[0]['uid'],
                 user_geocodes, # user geocodes from request
+                user_address, # user address
                 datetime.now(), #timestamp
                 self.controller_drones.create(), # drone
                 '{:.2f} miles'.format(float(distance)), # miles from user to drone [Drone are in HighSchools!]
-                '{:.2f} minutes'.format(float(distance/speed)), # time will always be 1.3 minutes
+                '{:.2f} minutes'.format(float(time)), # time will always be 1.3 minutes
                 '{:.2f} ml/h'.format(float(speed)), # speed the drone needs to be to get in 1.3 minutes
                     { # school data 
                         "name": school._name,
@@ -187,6 +200,5 @@ class ControllerAPI:
                         "geocodes": school._geocodes,  
                         "URL": quote(school._address)  # E.G. 301%20Melton%20Rd%2C%20Gary%2C%20IN%2046403%2C%20USA
                     },
-                    size
                     # self.utils.google_map_markers(user_geocodes, school._geocodes)
                 )

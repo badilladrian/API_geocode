@@ -24,7 +24,7 @@ class MongoDB:
 
 
 if __name__ == '__main__':
-
+    print("Mongo DB Process started")
     __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
     settings = {
@@ -36,8 +36,9 @@ if __name__ == '__main__':
         'collection_name': 'schools'
     }
     mongodb = MongoDB(**settings)
-
+    print("Dropping Mongo DB ...")
     mongodb._collection.drop()
+    print("Dropped Mongo DB ...")
 
     print("Saving data in the database.... ")
 

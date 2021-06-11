@@ -1,74 +1,82 @@
 # API_geocode
-use pipenv shell
-pipenv install -r requirements.txt
-then: python main.py
-
+with a virtual env, install requirements.txt
+then run main.py
 # REQUEST
-POST /safewrd
-``` 
-
+ 
+POST /safewrd/
+```
         {
-        "geocodes": [38.8254326, -97.7021551],
-        "uid": "CA308008-421B-11EB-B2BF-EDEFCE1D72FE"
+        "geocodes": [26.2078509, -80.1427387],
+        "uid": "CA308008-421B-11EB-B2BF-EDEFCE1D72FE",
+        "size": "600x800"
         }
-``` 
 
+```
 
 # RESPONSE
 ``` 
+
 {
     "user_data": "CA308008-421B-11EB-B2BF-EDEFCE1D72FE",
     "user_location": [
-        38.8254326,
-        -97.7021551
+        26.2078509,
+        -80.1427387
     ],
-    "date_of_request": "2021-04-14 02:43:30.720715",
-    "payload_id": "0_safewrd_wTkX1FqA",
+    "date_of_request": "2021-04-25 20:22:06.692469",
+    "payload_id": "1_safewrd_vwmReCr8",
     "drone": {
-        "drone_id": 0,
-        "drone_speed": "2395.59 ml/h"
+        "drone_id": 1,
+        "drone_speed": "0.51 ml/h"
     },
-    "miles_distance": "3194.12 miles",
+    "miles_distance": "0.69 miles",
     "estimated_time": "1.33 minutes",
-    "embedded_map": "<iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=Diomede%2C%20AK%2099762%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
+    "embedded_map": "<iframe width=\"600\" height=\"500\" id=\"gmap_canvas\" src=\"https://maps.google.com/maps?q=6000%20NE%209th%20Ave%2C%20Fort%20Lauderdale%2C%20FL%2033334%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed\" frameborder=\"0\" scrolling=\"no\" marginheight=\"0\" marginwidth=\"0\"></iframe>",
     "nearest_school": {
-        "name": "MORGAN ENTERPRISES",
-        "address": "Diomede, AK 99762, USA",
+        "name": "Broward County Public S...",
+        "address": "6000 NE 9th Ave, Fort Lauderdale, FL 33334, USA",
         "geocodes": {
-            "lat": 64.50114429999999,
-            "lon": -165.4064968
+            "lat": 26.2019092,
+            "lon": -80.1338845
         },
-        "school_image": "https://maps.googleapis.com/maps/api/streetview?size=600x300&location=Diomede%2C%20AK%2099762%2C%20USA&key="
+        "school_image": "https://maps.googleapis.com/maps/api/streetview?size=600x800&location=6000%20NE%209th%20Ave%2C%20Fort%20Lauderdale%2C%20FL%2033334%2C%20USA&key=AIzaSyDyn3nhSkxdxS6aUJXim4O-T50ZtLg4YGY"
     },
     "aireos_vote_url": "https://www.aireos.io/network/"
 }
 ``` 
 
-# API Summary:
--> controllers do all the interactions
--> models only define objects (payload creates the API respond!) * maps 
--> street viewer can download school images
--> utils has all the necessary functions for the application
 
-# cache LOGIC
--> the same response is returned if the same geocode makes a query
--> the same response is returned if new request is inside ratio of 2miles of previous requests
--> we must eventually save the images and stop consulting google for everytime * 
-
-# chart-values 
--> API key (not actually being used now)
-
-# static 
--> contains the iFrame that I placed but we need to pass the HTML gmaps w/ markers
--> contains the metadata needed to get header of pic to get actual picture from street_view.py Task4
--> other jsons for reference. There is a payload response as well --- 
+``` 
+# Default server configuration
+#
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
 
 
-# TASKS: I commented all the code- feel free to delete comments as needed. Did my best
--> you can look for the notes in the project they are TASK#--N 
-TASK#--1 How to deploy at server properly using SSL+HTTPS+UWSGI+NGIX
-TASK#--2 How to pass a whole HTML in the response
-TASK#--3 Save image from google and then re-use it when needed
-TASK#--4 Cache 
-TASK#--5 OpenAPI
-TASK#--6 Sentry
+        root /var/www/html/git;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.htm index.nginx-debian.html;
+
+        server_name _;
+
+        location / {
+                # First attempt to serve request as file, then
+                # as directory, then fall back to displaying a 404.
+                try_files $uri $uri/ =404;
+        }
+
+location ~ (/.*) {
+    client_max_body_size 0; # Git pushes can be massive, just to make sure nginx doesn't suddenly cut the connection add this.
+    auth_basic "Git Login"; # Whatever text will do.
+    auth_basic_user_file "/var/www/html/git/htpasswd";
+    include /etc/nginx/fastcgi_params; # Include the default fastcgi configs
+    fastcgi_param SCRIPT_FILENAME /usr/lib/git-core/git-http-backend; # Tells fastcgi to pass the request to the git http backend executable
+    fastcgi_param GIT_HTTP_EXPORT_ALL "";
+    fastcgi_param GIT_PROJECT_ROOT /var/www/html/git; # /var/www/git is the location of all of your git repositories.
+    fastcgi_param REMOTE_USER $remote_user;
+    fastcgi_param PATH_INFO $1; # Takes the capture group from our location directive and gives git that.
+    fastcgi_pass  unix:/var/run/fcgiwrap.socket; # Pass the request to fastcgi
+}
+
+}
