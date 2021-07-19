@@ -4,7 +4,7 @@ import datetime
 import os
 import redis
 
-from flask import request, jsonify, make_response
+from flask import request, jsonify
 from flask_cors import CORS, cross_origin
 from flask_caching import Cache
 
